@@ -14,12 +14,13 @@ public class parameters {
 	int RandomIndexForEmail=rand.nextInt(999);
 	
 	
-	static String TheWebSite="https://magento.softwaretestingboard.com";
+	static String TheWebSite="https://magento.softwaretestingboard.com/";
 	static String SingUp="https://magento.softwaretestingboard.com/customer/account/create";
 	static String [] FirstNames = {"Dana" ,"mera","Dania"};
 	static String [] lastNames = {"Omar","Ahmad","Sami"};
     static String logOut="https://magento.softwaretestingboard.com/customer/account/logout/\"";
     static String logIn ="https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS9jdXN0b21lci9hY2NvdW50L2xvZ291dC8%2C/";
+    static String logInUrl="https://magento.softwaretestingboard.com/customer/account/logoutSuccess/";
 	int randomIndexForTheName= rand.nextInt(3);
 	String firstName=FirstNames[randomIndexForTheName];
 	String lastName=lastNames[randomIndexForTheName];

@@ -9,7 +9,9 @@ import org.testng.annotations.Test;
 public class myTestCases extends parameters {
 	@BeforeTest 
 	public void myBeforTest () {
+		driver.manage().window().maximize();
 		driver.get(TheWebSite);
+		
 		
 	}
 	
@@ -21,7 +23,7 @@ public class myTestCases extends parameters {
 		WebElement emileInput =driver.findElement(By.id("email_address"));
 		WebElement passwordInput =driver.findElement(By.id("password"));
 		WebElement confirmPasswordInput =driver.findElement(By.id("password-confirmation"));
-	WebElement singUpInput =driver.findElement(By.xpath(Email));
+	WebElement singUpInput =driver.findElement(By.xpath("//button[@title='Create an Account']"));
 		
 		firstNameInput .sendKeys(firstName);
 		lastNameInput.sendKeys(lastName);
@@ -31,20 +33,20 @@ public class myTestCases extends parameters {
 		singUpInput.click();
 		Thread.sleep(2000);
 		 String WelcomeMsg =driver.findElement(By.xpath("//div[@class='panel header']")).getText();
-		softassert.assertEquals(WelcomeMsg.contains("Welcome"), false,"Validation the signup process");
+		softassert.assertEquals(WelcomeMsg.contains("Welcome"), true,"Validation the signup process");
 		softassert.assertAll();
 	}
-	@Test (priority = 2)
+	@Test(priority =2)
 	public void logOut() throws InterruptedException {
 		driver.get(logOut);
 		Thread.sleep(7000);
 		softassert.assertEquals(driver.getCurrentUrl(), TheWebSite,"validation of the website url after the logout");
-        softassert.assertAll();
+     softassert.assertAll();
 
 		
 	
 	}
-	@Test (priority = 3)
+	@Test(priority =3)
 	public void logIn() {
 		driver.get(logIn);
 		WebElement emailInput =driver.findElement(By.id("email"));
@@ -55,10 +57,13 @@ public class myTestCases extends parameters {
 		emailInput.sendKeys(Email);
 		passwordInput.sendKeys(password);
 		logInButton.click();
+		softassert.assertEquals(driver.getCurrentUrl(),logInUrl,"Validation of the website url after the logIN");
+	     softassert.assertAll();
 	}
 	
 	@AfterTest
-	public void after() {}
+	public void after() {
+	}
 
 
 	
